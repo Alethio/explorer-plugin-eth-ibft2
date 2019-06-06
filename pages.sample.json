@@ -1,0 +1,16 @@
+{
+    "pages": [{
+        "def": "page://aleth.io/block",
+        "children": {
+            "content": [{
+                "def": "module://aleth.io/lite/block/details",
+                "pageCritical": true,
+                "children": {
+                    "extraData": [{
+                        "def": "module://aleth.io/block/ibft2-extra-data"
+                    }]
+                }
+            }]
+        }
+    }]
+}
