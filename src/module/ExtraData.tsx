@@ -7,7 +7,7 @@ import { ValueBox } from "@alethio/ui/lib/layout/content/box/ValueBox";
 import { NumberBox } from "@alethio/ui/lib/data/box/NumberBox";
 import { HashValueBox } from "@alethio/ui/lib/data/box/HashValueBox";
 import { AddressHashBox } from "@alethio/explorer-ui/lib/box/account/AddressHashBox";
-import { IIbftDetails } from "../data/IIBFTDetails";
+import { IIbftDetails } from "../data/IIbftDetails";
 import { ITranslation } from "plugin-api";
 
 export interface IExtraDataProps {

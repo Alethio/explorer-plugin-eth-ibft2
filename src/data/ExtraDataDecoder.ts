@@ -1,6 +1,6 @@
 import * as rlp from "rlp";
 import { buf2hex } from "../util/buf2hex";
-import { IIbftDetails, IIbftVote } from "./IIBFTDetails";
+import { IIbftDetails, IIbftVote } from "./IIbftDetails";
 
 export class ExtraDataDecoder {
     decode(data: string) {
