@@ -2,7 +2,7 @@
   "name": "@alethio/explorer-plugin-eth-ibft2",
   "publisher": "aleth.io",
   "pluginName": "eth-ibft2",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Alethio explorer plugin for Ethereum chains with IBFT2 consensus algorithm",
   "main": "dist/index.js",
   "scripts": {
