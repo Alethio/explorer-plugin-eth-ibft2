@@ -1,19 +1,29 @@
 import { IModuleDef } from "plugin-api";
 import { IExtraDataProps, ExtraData } from "./ExtraData";
 import { ExtraDataDecoder } from "../data/ExtraDataDecoder";
+import { IIbftDetails } from "../data/IIbftDetails";
 
-interface IBlockDetails {
+interface IBlockData {
     extraData: string;
 }
 
-export const extraDataModule: IModuleDef<IExtraDataProps, {}, void> = {
+export const extraDataModule: (blockDataUri: string) => IModuleDef<IExtraDataProps, {}, void> = (blockDataUri) => ({
     contextType: {},
-    dataAdapters: [{ ref: "adapter://aleth.io/block/details" }],
+    dataAdapters: [{
+        alias: "ibftDetails",
+        def: {
+            contextType: {},
+            dependencies: [blockDataUri],
+            async load(context, cancelToken, depData) {
+                return new ExtraDataDecoder().decode(
+                    (depData.get(blockDataUri)! as IBlockData).extraData);
+            }
+        }
+    }],
     getContentComponent: async () => ExtraData,
     getContentProps: ({ asyncData, translation, locale }) => ({
-        ibftDetails: new ExtraDataDecoder().decode(
-            (asyncData.get("adapter://aleth.io/block/details")!.data as IBlockDetails).extraData),
+        ibftDetails: asyncData.get("ibftDetails")!.data as IIbftDetails,
         translation,
         locale
     })
-};
+});
