@@ -3,11 +3,20 @@
         "def": "page://aleth.io/block",
         "children": {
             "content": [{
+                "# Use with eth-lite core plugin": "",
                 "def": "module://aleth.io/lite/block/details",
                 "pageCritical": true,
                 "children": {
                     "extraData": [{
-                        "def": "module://aleth.io/block/ibft2-extra-data"
+                        "def": "module://aleth.io/eth-ibft2/block/lite/extra-data"
+                    }]
+                }
+            }, {
+                "# Use with eth-extended or eth-memento core plugins": "",
+                "def": "module://aleth.io/block/advanced",
+                "children": {
+                    "extraData": [{
+                        "def": "module://aleth.io/eth-ibft2/block/full/extra-data"
                     }]
                 }
             }]
