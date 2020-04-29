@@ -1,3 +1,7 @@
+# v2.0.1
+
+- Ensure hex extraData is prefixed with 0x before being passed to `rlp.decode` (Fix usage with memento)
+
 # v2.0.0
 
 - Fix compatibility with eth-extended@5+, eth-lite@4+ or eth-memento@1 core plugins

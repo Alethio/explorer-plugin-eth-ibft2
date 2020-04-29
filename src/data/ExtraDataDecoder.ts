@@ -4,7 +4,7 @@ import { IIbftDetails, IIbftVote } from "./IIbftDetails";
 
 export class ExtraDataDecoder {
     decode(data: string) {
-        let decodedArray: Buffer | Buffer[] | rlp.Decoded = rlp.decode(data) as Buffer[];
+        let decodedArray: Buffer | Buffer[] | rlp.Decoded = rlp.decode("0x" + data.replace(/^0x/, "")) as Buffer[];
         let defaultExtraData = buf2hex(decodedArray[0] as Uint8Array);
         let validatorsArray: string[] = [];
         let validatorsRawArray = decodedArray[1] as any as Uint8Array[];
